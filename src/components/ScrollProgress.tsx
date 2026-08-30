@@ -1,20 +1,36 @@
 import { useEffect, useState } from 'react'
 
-export function ScrollProgress({ containerId }: { containerId: string }) {
+export function ScrollProgress({ containerId }: { containerId?: string }) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const el = document.getElementById(containerId)
-    if (!el) return
-
     const onScroll = () => {
-      const max = el.scrollHeight - el.clientHeight
-      setProgress(max > 0 ? (el.scrollTop / max) * 100 : 0)
+      let max = 0
+      let scrollY = 0
+      
+      if (containerId) {
+        const el = document.getElementById(containerId)
+        if (el) {
+          max = el.scrollHeight - el.clientHeight
+          scrollY = el.scrollTop
+        }
+      } else {
+        max = document.documentElement.scrollHeight - window.innerHeight
+        scrollY = window.scrollY
+      }
+      
+      setProgress(max > 0 ? (scrollY / max) * 100 : 0)
     }
 
-    el.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => el.removeEventListener('scroll', onScroll)
+    const target = containerId ? document.getElementById(containerId) : window
+    if (target) {
+      target.addEventListener('scroll', onScroll, { passive: true })
+      onScroll() // Init
+    }
+    
+    return () => {
+      if (target) target.removeEventListener('scroll', onScroll)
+    }
   }, [containerId])
 
   return (
