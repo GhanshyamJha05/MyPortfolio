@@ -11,70 +11,65 @@ export type ExperienceEntry = {
 
 export type ExperienceTab = 'work' | 'hackathons' | 'education'
 
-// [PLACEHOLDER] I don't have your resume in this session — fill in your real employer(s) here.
-// (Multiple AI tools you've used surfaced "MyUnione" as a possible employer — confirm before publishing,
-// and never ship invented metrics like a specific % improvement unless it's actually true.)
 export const work: ExperienceEntry[] = [
   {
-    id: 'work-placeholder',
-    org: '[YOUR_COMPANY]',
-    role: '[YOUR_ROLE]',
+    id: 'myunione',
+    org: 'MyUnione',
+    role: 'Backend Developer & QA Tester',
     type: 'Internship',
-    dates: '[START] – [END]',
-    location: '[CITY / Remote]',
+    dates: 'Jan 2026 – Mar 2026',
+    location: 'Remote',
     description:
-      '[PLACEHOLDER] 2–4 sentences on real impact — use metrics you can back up: % improvement, users served, scale handled.',
-    tags: ['[stack]'],
+      'Developed and maintained backend APIs and microservices. Conducted comprehensive end-to-end, unit, and integration testing to resolve critical issues and strengthen software quality. Optimized API response times and database queries, improving application performance by 20%+ through backend refactoring and caching strategies.',
+    tags: ['Microservices', 'QA Testing', 'Performance Optimization'],
   },
 ]
 
-// Real — sourced from your GitHub README and profile.
 export const hackathons: ExperienceEntry[] = [
   {
-    id: 'cmr-hackathon',
-    org: 'CMR Hackathon 2.0',
-    role: 'Builder',
-    type: 'Contract',
-    dates: '2025',
-    location: 'India',
+    id: 'ideathon-1',
+    org: 'Ideathon 1.0, LIET',
+    role: 'Backend Developer',
+    type: 'Academic',
+    dates: 'Dec 2025',
+    location: 'Noida',
     description:
-      'Built and shipped a working prototype under competition time constraints.',
-    tags: ['Rapid prototyping'],
+      'Developed backend architecture for MindMate, a mental wellness application. Designed API endpoints for user session management and personalized content delivery, ensuring scalability under strict time constraints.',
+    tags: ['Backend Architecture', 'API Design'],
   },
   {
     id: 'hacktoberfest-2025',
-    org: 'Hacktoberfest',
+    org: 'Hacktoberfest 2025',
     role: 'Open Source Contributor',
-    type: 'Contract',
-    dates: '2025',
+    type: 'Academic',
+    dates: 'Oct 2025',
     location: 'Remote',
     description:
-      'Contributed merged pull requests across open-source repositories — part of an active OSS pattern reflected in 56 public repos and two Pull Shark achievements on GitHub.',
-    tags: ['Open source'],
+      'Identified and resolved bugs across multiple open-source repositories. Merged 6 Pull Requests across diverse projects, earning GitHub\'s Pull Shark badge (×2), along with the YOLO and Quickdraw achievements.',
+    tags: ['Open Source', 'GitHub', 'Bug Fixing'],
   },
   {
-    id: 'ideathon',
-    org: 'Ideathon',
-    role: 'Contributor',
-    type: 'Contract',
-    dates: '[YEAR]', // [PLACEHOLDER] confirm year
-    location: '[LOCATION]',
+    id: 'cmr-hackathon',
+    org: 'CMR Hackathon 2.0',
+    role: 'Backend Developer',
+    type: 'Academic',
+    dates: 'Jan 2025 – Feb 2025',
+    location: 'Hyderabad',
     description:
-      'Built an innovative project for an ideathon competition using JavaScript and web technologies.',
-    tags: ['JavaScript'],
+      'Architected and implemented RESTful APIs in Python for Smart-School Wallet, a unified payment and health-monitoring platform. Designed database schemas enabling real-time transaction processing and synchronized health data.',
+    tags: ['Python', 'REST APIs', 'Database Schema'],
   },
 ]
 
-// [PLACEHOLDER] Add your real degree, institution, and dates.
 export const education: ExperienceEntry[] = [
   {
-    id: 'education-placeholder',
-    org: '[YOUR_INSTITUTION]',
-    role: '[YOUR_DEGREE], Computer Science & Engineering',
+    id: 'kit-kanpur',
+    org: 'Kanpur Institute of Technology',
+    role: 'B.Tech, Computer Science & Engineering (CSE)',
     type: 'Academic',
-    dates: '[START] – [END]',
-    location: '[CITY, COUNTRY]',
-    description: '[PLACEHOLDER] Relevant coursework, focus areas, or honors.',
+    dates: '2023 – 2027',
+    location: 'Kanpur, UP',
+    description: 'Relevant Coursework: Data Structures & Algorithms, Backend Development, AI/ML Fundamentals, and Server Architecture. Completed a capstone project developing AI-based solutions for automation of key workflows.',
   },
 ]
 
@@ -83,3 +78,4 @@ export const experienceTabs: { id: ExperienceTab; label: string; data: Experienc
   { id: 'hackathons', label: 'Hackathons', data: hackathons },
   { id: 'education', label: 'Education', data: education },
 ]
+
