@@ -103,25 +103,27 @@ export function Hero({ onOpenTerminal }: { onOpenTerminal: () => void }) {
             onClick={onOpenTerminal}
             className="text-left w-full rounded-xl border border-border bg-panel overflow-hidden shadow-2xl font-mono text-xs md:text-sm hover:border-accent/50 transition-colors focus-ring block"
           >
-            <div className="flex items-center gap-2 px-4 py-2.5 bg-[#151318] border-b border-border w-full">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-              <span className="ml-2 text-muted text-[11px]">gj@portfolio ~ bash</span>
-            </div>
-            <div className="p-4 space-y-2 w-full">
-              {PREVIEW_LINES.map(([cmd, out]) => (
-                <div key={cmd}>
-                  <p className="text-ink">
-                    <span className="text-accent">$</span> {cmd}
-                  </p>
-                  <p className="text-muted pl-3">{out}</p>
-                </div>
-              ))}
-              <p className="text-accent flex items-center gap-1 pt-1">
-                <TerminalIcon size={12} /> click to open full terminal
-                <span className="w-1.5 h-3.5 bg-accent inline-block animate-blink ml-1" />
-              </p>
+            <div className="w-full h-full flex flex-col">
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-[#151318] border-b border-border w-full">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                <span className="ml-2 text-muted text-[11px]">gj@portfolio ~ bash</span>
+              </div>
+              <div className="p-4 space-y-2 w-full">
+                {PREVIEW_LINES.map(([cmd, out]) => (
+                  <div key={cmd}>
+                    <p className="text-ink">
+                      <span className="text-accent">$</span> {cmd}
+                    </p>
+                    <p className="text-muted pl-3">{out}</p>
+                  </div>
+                ))}
+                <p className="text-accent flex items-center gap-1 pt-1">
+                  <TerminalIcon size={12} /> click to open full terminal
+                  <span className="w-1.5 h-3.5 bg-accent inline-block animate-blink ml-1" />
+                </p>
+              </div>
             </div>
           </MagneticButton>
         </motion.div>
