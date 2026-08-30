@@ -1,4 +1,4 @@
-import { useRef, useState, ReactNode } from 'react'
+import { useRef, ReactNode } from 'react'
 import { motion, useSpring, useTransform } from 'framer-motion'
 
 interface MagneticButtonProps {
@@ -11,8 +11,7 @@ interface MagneticButtonProps {
 }
 
 export function MagneticButton({ children, className = '', onClick, href, target, rel }: MagneticButtonProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [hovered, setHovered] = useState(false)
+  const ref = useRef<HTMLElement>(null)
 
   // Spring physics for smooth magnetic pull
   const x = useSpring(0, { stiffness: 150, damping: 15, mass: 0.1 })
@@ -22,7 +21,7 @@ export function MagneticButton({ children, className = '', onClick, href, target
   const textX = useTransform(x, (val) => val * 0.4)
   const textY = useTransform(y, (val) => val * 0.4)
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!ref.current) return
     const rect = ref.current.getBoundingClientRect()
     
@@ -42,7 +41,6 @@ export function MagneticButton({ children, className = '', onClick, href, target
   }
 
   const handleMouseLeave = () => {
-    setHovered(false)
     x.set(0)
     y.set(0)
   }
@@ -59,7 +57,6 @@ export function MagneticButton({ children, className = '', onClick, href, target
   const commonProps = {
     ref: ref as any,
     onMouseMove: handleMouseMove,
-    onMouseEnter: () => setHovered(true),
     onMouseLeave: handleMouseLeave,
     onClick,
     className: `relative flex items-center justify-center ${className}`,
