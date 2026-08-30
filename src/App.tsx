@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
@@ -19,6 +19,17 @@ export default function App() {
   const { theme, toggle } = useTheme()
   const [terminalOpen, setTerminalOpen] = useState(false)
   const openTerminal = () => setTerminalOpen(true)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault()
+        setTerminalOpen((prev) => !prev)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
 
   return (
     <div id="scroll-container" className="snap-container h-screen overflow-y-scroll">
