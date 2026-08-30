@@ -23,9 +23,11 @@ export default {
       keyframes: {
         blink: { '0%, 49%': { opacity: '1' }, '50%, 100%': { opacity: '0' } },
         scanline: { '0%': { transform: 'translateY(-100%)' }, '100%': { transform: 'translateY(100%)' } },
+        marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
       },
       animation: {
         blink: 'blink 1s step-start infinite',
+        marquee: 'marquee 30s linear infinite',
       },
     },
   },

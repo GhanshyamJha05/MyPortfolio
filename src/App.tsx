@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
+import { TechMarquee } from './components/TechMarquee'
 import { About } from './components/About'
 import { Experience } from './components/Experience'
 import { Projects } from './components/Projects'
@@ -13,6 +14,7 @@ import { TerminalLauncher } from './components/TerminalLauncher'
 import { CustomCursor } from './components/CustomCursor'
 import { ScrollProgress } from './components/ScrollProgress'
 import { ParticleField } from './components/ParticleField'
+import { MouseSpotlight } from './components/MouseSpotlight'
 import { useTheme } from './hooks/useTheme'
 
 export default function App() {
@@ -32,15 +34,17 @@ export default function App() {
   }, [])
 
   return (
-    <div id="scroll-container" className="snap-container h-screen overflow-y-scroll">
+    <div id="scroll-container" className="snap-container h-screen overflow-y-scroll relative">
       <CustomCursor />
       <ScrollProgress containerId="scroll-container" />
+      <MouseSpotlight />
       <div className="fixed inset-0 z-0 pointer-events-none">
         <ParticleField count={90} />
       </div>
       <Navbar theme={theme} onToggleTheme={toggle} onOpenTerminal={openTerminal} />
       <main className="relative z-[1]">
         <Hero onOpenTerminal={openTerminal} />
+        <TechMarquee />
         <About />
         <Experience />
         <Projects />

@@ -76,11 +76,19 @@ export function CodeDNA() {
           const r = emphasize ? 10 : 7
           ctx.beginPath()
           ctx.arc(x, y, r, 0, Math.PI * 2)
+          
+          // Add glow effect
+          ctx.shadowBlur = emphasize ? 20 : 10
+          ctx.shadowColor = hex
+          
           ctx.fillStyle = hex + (emphasize ? '55' : '30')
           ctx.fill()
           ctx.strokeStyle = hex + (emphasize ? 'cc' : '80')
           ctx.lineWidth = emphasize ? 1.8 : 1.2
           ctx.stroke()
+          
+          // Reset shadow for performance on other elements
+          ctx.shadowBlur = 0
         }
 
         if (frontIsLeft) {

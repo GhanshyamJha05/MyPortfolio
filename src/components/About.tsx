@@ -2,9 +2,29 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { profile } from '../data/profile'
 import { Section, SectionHeading } from './Section'
+import { MagneticButton } from './MagneticButton'
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+      delayChildren: 0.1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } }
+}
 
 export function About() {
   const [activeChip, setActiveChip] = useState<number | null>(null)
+
+  // Split the bio by spaces to animate word-by-word
+  const words = profile.bioLong.split(' ')
 
   return (
     <Section
@@ -21,15 +41,26 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="max-w-3xl"
         >
-          <p className="text-xl md:text-2xl leading-relaxed text-ink">
-            {profile.bioLong.split(/(\bSentinel CLI\b|\b56 public repositories\b)/).map((part, i) =>
-              part === 'Sentinel CLI' || part === '56 public repositories' ? (
-                <span key={i} className="text-accent font-semibold">{part}</span>
-              ) : (
-                part
+          <motion.p 
+            variants={containerVariants} 
+            initial="hidden" 
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-xl md:text-2xl leading-relaxed text-ink flex flex-wrap gap-x-2 gap-y-1"
+          >
+            {words.map((word, i) => {
+              const isHighlight = word.includes('Sentinel') || word.includes('CLI') || word.includes('56') || word.includes('repositories')
+              return (
+                <motion.span 
+                  key={i} 
+                  variants={itemVariants}
+                  className={isHighlight ? 'text-accent font-semibold' : ''}
+                >
+                  {word}
+                </motion.span>
               )
-            )}
-          </p>
+            })}
+          </motion.p>
 
           <div className="mt-10 flex flex-wrap gap-3">
             {profile.chips.map((chip, i) => (
@@ -57,26 +88,22 @@ export function About() {
           </div>
 
           <div className="mt-12 flex flex-wrap gap-4">
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
+            <MagneticButton
               href={profile.resumeUrl}
               target="_blank"
               rel="noreferrer"
-              className="font-mono text-sm px-6 py-3 rounded-full bg-accent text-bg font-semibold focus-ring"
+              className="font-mono text-sm px-6 py-3 rounded-full bg-accent text-bg font-semibold focus-ring inline-block"
             >
               Resume
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
+            </MagneticButton>
+            <MagneticButton
               href={profile.social.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="font-mono text-sm px-6 py-3 rounded-full border border-border text-ink hover:border-accent hover:text-accent transition-colors focus-ring"
+              className="font-mono text-sm px-6 py-3 rounded-full border border-border text-ink hover:border-accent hover:text-accent transition-colors focus-ring inline-block"
             >
               LinkedIn
-            </motion.a>
+            </MagneticButton>
           </div>
         </motion.div>
 
