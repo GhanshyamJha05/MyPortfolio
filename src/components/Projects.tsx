@@ -27,10 +27,13 @@ export function Projects() {
             transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
             className="group bg-panel border border-border rounded-2xl overflow-hidden hover:border-accent/50 hover:shadow-[0_12px_40px_rgb(var(--accent)/0.1)] transition-[border-color,box-shadow]"
           >
-            <div className="aspect-video bg-gradient-to-br from-accent/10 to-transparent flex items-center justify-center border-b border-border overflow-hidden">
-              <span className="font-mono text-4xl font-bold text-accent/30 group-hover:text-accent/60 group-hover:scale-110 transition-all duration-300">
-                {project.title.slice(0, 2).toUpperCase()}
-              </span>
+            <div className="aspect-video bg-gradient-to-br from-accent/10 to-transparent flex items-center justify-center border-b border-border overflow-hidden relative">
+              <img 
+                src={project.images[0]} 
+                alt={`${project.title} screenshot`}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
             </div>
             <div className="p-6">
               <span className="font-mono text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent">
