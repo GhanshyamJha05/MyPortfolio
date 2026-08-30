@@ -18,7 +18,7 @@ export const projects: Project[] = [
       'A complete platform for renting cars with a modern UI, built end-to-end in TypeScript and Next.js — from listing browse flows to booking.',
     tech: ['TypeScript', 'Next.js'],
     links: [{ label: 'GitHub', url: 'https://github.com/GhanshyamJha05/Car-Rental-Website' }],
-    images: ['/projects/placeholder-1.svg'],
+    images: ['/projects/car_rental.jpg'],
     featured: true,
   },
   {
@@ -29,7 +29,7 @@ export const projects: Project[] = [
       'A command-line developer tool built for speed and scriptability — the terminal on this site is a nod to it. [PLACEHOLDER] add a fuller description of what Sentinel actually watches/does.',
     tech: ['Go'],
     links: [{ label: 'GitHub', url: 'https://github.com/GhanshyamJha05?tab=repositories' }],
-    images: ['/projects/placeholder-2.svg'],
+    images: ['/projects/cli_tool.jpg'],
     featured: true,
   },
   {
@@ -40,7 +40,7 @@ export const projects: Project[] = [
       'A high-performance web scraper written in Go to extract data efficiently at scale — one of the top-starred repos on the profile.',
     tech: ['Go'],
     links: [{ label: 'GitHub', url: 'https://github.com/GhanshyamJha05/WEB_SCRAPPER_Using-GO' }],
-    images: ['/projects/placeholder-3.svg'],
+    images: ['/projects/web_scraper.jpg'],
     featured: true,
   },
   {
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       'A JavaScript-based tool that parses and evaluates resumes — combining practical NLP techniques with a usable front-end for real feedback.',
     tech: ['JavaScript'],
     links: [{ label: 'GitHub', url: 'https://github.com/GhanshyamJha05/Resume_Analyzer' }],
-    images: ['/projects/placeholder-4.svg'],
+    images: ['/projects/resume_analyzer.jpg'],
     featured: false,
   },
   {
@@ -62,7 +62,7 @@ export const projects: Project[] = [
       'Real-time stock tracking app with a Go backend feeding live price data to a JavaScript front end.',
     tech: ['Go', 'JavaScript'],
     links: [{ label: 'GitHub', url: 'https://github.com/GhanshyamJha05/Live_Stock_Tracker_usingGO' }],
-    images: ['/projects/placeholder-5.svg'],
+    images: ['/projects/stock_tracker.jpg'],
     featured: false,
   },
   {
@@ -73,7 +73,7 @@ export const projects: Project[] = [
       'A voxel-based Minecraft-like game clone built with Python and the Ursina engine — chunk generation, block placement, and basic world physics from scratch.',
     tech: ['Python', 'Ursina Engine'],
     links: [{ label: 'GitHub', url: 'https://github.com/GhanshyamJha05/minecraft-basic-by-python' }],
-    images: ['/projects/placeholder-6.svg'],
+    images: ['/projects/minecraft_clone.jpg'],
     featured: false,
   },
 ]
