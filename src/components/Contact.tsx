@@ -36,7 +36,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" className="justify-between">
+    <Section id="contact" compact>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8">
         {/* Left Side: Copy & Info */}
         <motion.div
@@ -161,7 +161,7 @@ export function Contact() {
         </motion.div>
       </div>
 
-      <footer className="mt-20 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <footer className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <p className="font-mono text-xs text-muted">
           Designed &amp; developed by {profile.name} · © {new Date().getFullYear()}
         </p>
