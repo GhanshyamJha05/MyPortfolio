@@ -34,9 +34,9 @@ export default function App() {
   }, [])
 
   return (
-    <div id="scroll-container" className="snap-container h-screen overflow-y-scroll relative">
+    <div className="relative min-h-screen text-ink bg-bg font-sans selection:bg-accent/30 selection:text-accent">
       <CustomCursor />
-      <ScrollProgress containerId="scroll-container" />
+      <ScrollProgress />
       <MouseSpotlight />
       <div className="fixed inset-0 z-0 pointer-events-none">
         <ParticleField count={90} />

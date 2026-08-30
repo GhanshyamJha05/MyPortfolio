@@ -24,7 +24,7 @@
   border-color: rgb(var(--border));
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
 }
 
@@ -33,14 +33,6 @@ body {
   color: rgb(var(--ink));
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.snap-container {
-  scroll-snap-type: y proximity;
-}
-
-.snap-section {
-  scroll-snap-align: start;
 }
 
 ::selection {
