@@ -2,37 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: 10 10 14;
-  --panel: 20 19 24;
-  --ink: 237 234 227;
-  --muted: 148 144 156;
-  --accent: 240 168 51;
-  --border: 42 40 48;
-}
+@layer base {
+  :root {
+    --bg: 10 10 14;
+    --panel: 20 19 24;
+    --ink: 237 234 227;
+    --muted: 148 144 156;
+    --accent: 240 168 51;
+    --border: 42 40 48;
+  }
 
-.light {
-  --bg: 250 249 246;
-  --panel: 255 255 255;
-  --ink: 20 18 24;
-  --muted: 105 100 112;
-  --accent: 191 122 12;
-  --border: 226 222 214;
-}
+  .light {
+    --bg: 250 249 246;
+    --panel: 255 255 255;
+    --ink: 20 18 24;
+    --muted: 105 100 112;
+    --accent: 191 122 12;
+    --border: 226 222 214;
+  }
 
-* {
-  border-color: rgb(var(--border));
-}
+  * {
+    border-color: rgb(var(--border));
+  }
 
-html, body {
-  scroll-behavior: smooth;
-}
+  html, body {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background-color: rgb(var(--bg));
-  color: rgb(var(--ink));
-  font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }
 
 ::selection {
