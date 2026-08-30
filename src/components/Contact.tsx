@@ -36,7 +36,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" compact>
+    <Section id="contact" className="justify-between min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8">
         {/* Left Side: Copy & Info */}
         <motion.div
@@ -161,7 +161,25 @@ export function Contact() {
         </motion.div>
       </div>
 
-      <footer className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      {/* Thank You / Farewell Section */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="flex-1 flex flex-col items-center justify-center mt-32 mb-16 text-center space-y-6 relative"
+      >
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none" />
+        <span className="text-6xl md:text-8xl drop-shadow-[0_0_30px_rgba(var(--accent-rgb),0.4)] animate-pulse" role="img" aria-label="Praying hands">
+          🙏
+        </span>
+        <h3 className="text-3xl md:text-4xl font-sans font-bold text-ink">Thanks for stopping by!</h3>
+        <p className="text-muted max-w-sm font-mono text-sm">
+          I appreciate you taking the time to review my work. Let's create something amazing together.
+        </p>
+      </motion.div>
+
+      <footer className="pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <p className="font-mono text-xs text-muted">
           Designed &amp; developed by {profile.name} · © {new Date().getFullYear()}
         </p>
